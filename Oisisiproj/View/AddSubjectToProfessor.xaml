@@ -1,0 +1,38 @@
+﻿<Window x:Class="Oisisiproj.View.AddSubjectToProfessor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Oisisiproj.View"
+         xmlns:ns="clr-namespace:Oisisiproj.Localization"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="{ns:Loc AddSubject}" Height="360" Width="420">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition/>
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0">
+            <Label Height="30" Width="80" Margin="20,5,0,0" Content="{ns:Loc Subjects}" FontSize="16"/>
+        </WrapPanel>
+        <WrapPanel Grid.Row="1">
+            <DataGrid Height="230" Width="360" Margin="20,0,0,0" ItemsSource="{Binding Path=Predmeti, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding Path=SelectedPredmet, UpdateSourceTrigger=PropertyChanged}"
+                      AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{ns:Loc SubjectCode}"  Binding="{Binding Sifra}" Width="*">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{ns:Loc NameSubject}" Binding="{Binding Naziv}" Width="*">
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </WrapPanel>
+        <WrapPanel Grid.Row="2">
+            <Button Height="30" Width="80" Margin="200,5,0,0" Content="{ns:Loc Confirm}" FontSize="14" Click="DodajPredmet_Click"/>
+            <Button Height="30" Width="80" Margin="20,5,0,0" Content="{ns:Loc Cancel}" FontSize="14" Click="Odustani_Click"/>
+        </WrapPanel>
+    </Grid>
+</Window>

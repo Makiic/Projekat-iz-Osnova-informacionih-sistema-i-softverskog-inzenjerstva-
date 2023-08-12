@@ -1,0 +1,99 @@
+﻿<Window x:Class="Oisisiproj.View.AddStudent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Oisisiproj.View"
+        xmlns:ns="clr-namespace:Oisisiproj.Localization"
+      mc:Ignorable="d" 
+      Height="580" Width="550"
+      Title="{ns:Loc AddStudent}" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <AdornedElementPlaceholder x:Name="textBox"/>
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Width="450" Height="450">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="{ns:Loc FirstName}" Grid.Row="0" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc LastName}" Grid.Row="1" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc BirthDate}" Grid.Row="2" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc Address}" Grid.Row="3" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc PhoneNumber}" Grid.Row="4" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc Email}" Grid.Row="5" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc Index}" Grid.Row="6" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc RegistrationYear}" Grid.Row="7" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc YearStudy}" Grid.Row="8" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc FinancingMethod}" Grid.Row="9" Grid.Column="0" Height="25"></Label>
+            <TextBox  Name="imeTb" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Ime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25">
+            </TextBox>
+            <TextBox Name="prezimeTb" Grid.Row="1" Grid.Column="1" Text="{Binding Path=Prezime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25">
+            </TextBox>
+            <TextBox Name="datumRodjenjaTb" Grid.Row="2" Grid.Column="1" Text="{Binding Path=DatumRodjenja, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25" ></TextBox>
+            <TextBox  Name ="adresaSTb" Grid.Row="3" Grid.Column="1" Text="{Binding Path=AdresaStanovanja, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+            <TextBox Name="telefonTb" Grid.Row="4" Grid.Column="1" Text="{Binding Path=Telefon, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+            <TextBox Name="emailTb" Grid.Row="5" Grid.Column="1" Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+             
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+            <TextBox Name="indeksTb" Grid.Row="6" Grid.Column="1" Text="{Binding Path=Indeks, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+            <TextBox Name="godupTb" Grid.Row="7" Grid.Column="1" Text="{Binding Path=GodinaUpisa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+            <TextBox  Name ="godinaStudTb" Grid.Row="8" Grid.Column="1" Text="{Binding Path=GodinaStudija, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+            <ComboBox Name="StatusCb" Grid.Row="9" Grid.Column="1" ItemsSource="{Binding Path= statusi}" Text="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></ComboBox>
+
+        </Grid>
+        <WrapPanel Grid.Row="1" FlowDirection="LeftToRight">
+            <Separator Background="White" Width="170"></Separator>
+            <Button Content="{ns:Loc Confirm}"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 5, 20, 5"
+                    Click="CreateStudent_Click"/>
+            <Separator Background="White" Width="100"></Separator>
+            <Button Content="{ns:Loc Cancel}" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 5, 20, 5" 
+                    Click="OdustaniButton_Click"/>
+            <Separator Background="White" Width="180"></Separator>
+        </WrapPanel>
+    </Grid>
+</Window>

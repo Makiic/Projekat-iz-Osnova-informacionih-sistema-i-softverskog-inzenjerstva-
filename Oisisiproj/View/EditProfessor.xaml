@@ -1,0 +1,77 @@
+﻿<Window x:Class="Oisisiproj.View.EditProfessor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Oisisiproj.View"
+        xmlns:ns="clr-namespace:Oisisiproj.Localization"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="{ns:Loc UpdateProfessor}" Height="600" Width="600">
+    <Grid>
+        <TabControl>
+            <TabItem Header="{ns:Loc Informations}" FontSize="16">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="22*"/>
+                        <ColumnDefinition Width="105*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="437*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="{ns:Loc Confirm}" HorizontalAlignment="Left" Margin="45,470,0,0" VerticalAlignment="Top" Width="200" Height="40" Background="#FF5F69FF" Click="PublishButton_Click" Grid.ColumnSpan="4" Grid.Column="1"/>
+                    <Button Content="{ns:Loc Cancel}" HorizontalAlignment="Left" Margin="182,470,0,0" VerticalAlignment="Top" Width="200" Height="40" Background="#FFFF7777" Click="Button_Click" Grid.Column="4"/>
+                    <Label Content="{ns:Loc LastName}"  HorizontalAlignment="Left" Margin="15,41,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <Label  Content="{ns:Loc FirstName}" HorizontalAlignment="Left" Margin="16,77,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <Label  Content="{ns:Loc BirthDate}" HorizontalAlignment="Left" Margin="17,113,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <Label Content="{ns:Loc PhoneNumber}"  HorizontalAlignment="Left" Margin="16,149,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Label Content="{ns:Loc Email}" HorizontalAlignment="Left" Margin="16,185,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <Label  Content="{ns:Loc Address}"  HorizontalAlignment="Left" Margin="16,221,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <Label Content="{ns:Loc OfficeAddress}"  HorizontalAlignment="Left" Margin="16,257,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="4" Grid.Column="1"/>
+                    <Label Content="{ns:Loc YearInternship}"  HorizontalAlignment="Left" Margin="16,293,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="4" Grid.Column="1"/>
+                    <Label Content="{ns:Loc IdCard}" HorizontalAlignment="Left" Margin="16,329,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <Label Content="{ns:Loc Title}"  HorizontalAlignment="Left" Margin="16,365,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <TextBox Name="prezimeTb" HorizontalAlignment="Left" Margin="109,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Column="4"/>
+                    <TextBox Name="imeTb" HorizontalAlignment="Left" Margin="109,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Column="4"/>
+                    <TextBox Name="datumRodjenjaTb" HorizontalAlignment="Left" Margin="109,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Column="4"/>
+                    <TextBox Name="telefonTb" HorizontalAlignment="Left" Margin="109,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Column="4"/>
+                    <TextBox Name="emailTb" HorizontalAlignment="Left" Margin="109,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Column="4"/>
+                    <TextBox Name="adresaSTb" HorizontalAlignment="Left" Margin="109,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Column="4"/>
+                    <TextBox Name="adresaKTb" HorizontalAlignment="Left" Margin="109,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Column="4"/>
+                    <TextBox Name="godineStazaTb" HorizontalAlignment="Left" Margin="109,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Column="4"/>
+                    <TextBox Name="brojLicneTb" HorizontalAlignment="Left" Margin="109,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Column="4"/>
+                    <TextBox Name="zvanjeTb" HorizontalAlignment="Left" Margin="109,369,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Column="4"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Predmeti" FontSize="16">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel Grid.Row="0">
+                        <Button Width="150" Height="30" Margin="20,10,0,0" Content="{ns:Loc AddSubject2}" Background="#FF6A6CFF" Click="DodajPredmetButton_Click"/>
+                        <Button Width="150" Height="30" Margin="50,10,0,0" Content="{ns:Loc RemoveSubject2}" Background="#FF6A6CFF" Click="UkloniPredmetButton_Click"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Row="1">
+                        <DataGrid Name="predmetiGrid" Height="420" Width="555" Margin="10,25,0,0" FontSize="14" ItemsSource="{Binding Path=Predmeti, UpdateSourceTrigger=PropertyChanged}"
+                                  AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding Path=SelectedPredmet, UpdateSourceTrigger=PropertyChanged}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{ns:Loc SubjectCode}" Binding="{Binding Sifra}" Width="*">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="{ns:Loc NameSubject}" Binding="{Binding Naziv}" Width="4*">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="{ns:Loc YearStudy}" Binding="{Binding GodinaStudija}" Width="3*">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="{ns:Loc Semester}"  Binding="{Binding Semestar}" Width="2*">
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </WrapPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

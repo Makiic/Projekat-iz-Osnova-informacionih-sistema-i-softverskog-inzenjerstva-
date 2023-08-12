@@ -1,0 +1,52 @@
+﻿<Window x:Class="Oisisiproj.View.AddOcena"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Oisisiproj.View"
+        xmlns:ns="clr-namespace:Oisisiproj.Localization"
+        mc:Ignorable="d"
+        Title="{ns:Loc AddOcena}"  Height="350" Width="350" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Width="270" Height="220">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="{ns:Loc Code}" Grid.Row="0" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc Name}" Grid.Row="1" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc Grade}" Grid.Row="2" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc Date}" Grid.Row="3" Grid.Column="0" Height="25"></Label>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=SifraPredmeta}"  TextWrapping="Wrap"
+                     Height="25">
+            </TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=NazivPredmeta}"  TextWrapping="Wrap"
+                     Height="35" ></TextBlock>
+            <ComboBox x:Name="vrednostOceneCombo" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Path= ocene}" Text="{Binding Path=Ocena, UpdateSourceTrigger=PropertyChanged}"
+                     Height="35"></ComboBox>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=DatumIspita, UpdateSourceTrigger=PropertyChanged}"
+                     Height="35"></TextBox>
+        </Grid>
+        <WrapPanel Grid.Row="1" FlowDirection="LeftToRight">
+            <Separator Width="58" Background="White"></Separator>
+            <Button Content="{ns:Loc Confirm}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="70" Margin="20, 5, 20, 5"
+                    Click="CreateGrade_Click"/>
+            <Separator Width="10" Background="White"></Separator>
+            <Button Content="{ns:Loc Cancel}" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="70" Margin="20, 5, 20, 5" 
+                    Click="CancelCreateGrade_Click"/>
+            <Separator Width="50" Background="White"></Separator>
+        </WrapPanel>
+
+    </Grid>
+</Window>

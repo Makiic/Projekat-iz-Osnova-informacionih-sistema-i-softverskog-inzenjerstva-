@@ -1,0 +1,36 @@
+﻿<Window x:Class="Oisisiproj.View.AddProfessor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Oisisiproj.View"
+          xmlns:ns="clr-namespace:Oisisiproj.Localization"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="{ns:Loc AddProfessor}" Height="570" Width="400">
+    <Grid>
+        <Button Content="{ns:Loc Confirm}" HorizontalAlignment="Left" Margin="67,470,0,0" VerticalAlignment="Top" Width="80" Height="40" Background="#FF5F69FF" Click="PublishButton_Click"/>
+        <Button Content="{ns:Loc Cancel}" HorizontalAlignment="Left" Margin="251,470,0,0" VerticalAlignment="Top" Width="80" Height="40" Background="#FFFF7777" Click="Button_Click"/>
+        <Label Content="{ns:Loc FirstName}"  HorizontalAlignment="Left" Margin="38,41,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc LastName}" HorizontalAlignment="Left" Margin="38,77,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc BirthDate}" HorizontalAlignment="Left" Margin="38,113,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc PhoneNumber}" HorizontalAlignment="Left" Margin="38,149,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc Email}" HorizontalAlignment="Left" Margin="38,185,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc Address}" HorizontalAlignment="Left" Margin="38,221,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc OfficeAddress}" HorizontalAlignment="Left" Margin="38,257,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc YearInternship}" HorizontalAlignment="Left" Margin="38,293,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc IdCard}" HorizontalAlignment="Left" Margin="38,329,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc Title}" HorizontalAlignment="Left" Margin="38,365,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox Name="prezimeTb" HorizontalAlignment="Left" Margin="251,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="imeTb" HorizontalAlignment="Left" Margin="251,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="datumRodjenjaTb" HorizontalAlignment="Left" Margin="251,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="telefonTb" HorizontalAlignment="Left" Margin="251,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="emailTb" HorizontalAlignment="Left" Margin="251,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="adresaSTb" HorizontalAlignment="Left" Margin="251,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="adresaKTb" HorizontalAlignment="Left" Margin="251,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="godineStazaTb" HorizontalAlignment="Left" Margin="251,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="brojLicneTb" HorizontalAlignment="Left" Margin="251,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="zvanjeTb" HorizontalAlignment="Left" Margin="251,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

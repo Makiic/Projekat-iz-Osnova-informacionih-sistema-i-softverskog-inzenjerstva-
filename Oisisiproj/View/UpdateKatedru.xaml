@@ -1,0 +1,61 @@
+﻿<Window x:Class="Oisisiproj.View.UpdateKatedru"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Oisisiproj.View"
+        xmlns:ns="clr-namespace:Oisisiproj.Localization"
+        mc:Ignorable="d"
+        Title="{ns:Loc EditDepartment}"   Height="400" Width="500"  WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <WrapPanel>
+            <Separator Width="60" Background="White"></Separator>
+            <Button Content="{ns:Loc EditDepartmentHead}" Margin="10,20,10,10" Height="30" Width="140" 
+                    Click="UpdateDepartmentHead_Click"/>
+        </WrapPanel>
+        <Grid Grid.Row="1" Grid.Column="0" Width="350" Height="190">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="{ns:Loc DepartmentCode}" Grid.Row="0" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc DepartmentName}" Grid.Row="1" Grid.Column="0" Height="25"></Label>
+            <Label Content="{ns:Loc DepartmentHead}" Grid.Row="2" Grid.Column="0" Height="25"></Label>
+
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=SifraKatedre}"  TextWrapping="Wrap"
+                     Height="25">
+            </TextBlock>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=NazivKatedre}"  TextWrapping="Wrap"
+                     Height="25" ></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="1"  TextWrapping="Wrap" Height="35">
+                     <Run Text="{Binding ImeProfesora, UpdateSourceTrigger=PropertyChanged}"/>
+                     <Run Text="  "/>
+                     <Run Text="{Binding PrezimeProfesora, UpdateSourceTrigger=PropertyChanged}"/>
+            </TextBlock>
+        </Grid>
+        <WrapPanel Grid.Row="2" FlowDirection="LeftToRight">
+            <Separator Width="100" Background="White"></Separator>
+            <Button Content="{ns:Loc Confirm}"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="70" Margin="20, 20, 20, 5"
+                    Click="UpdateDepartment_Click"/>
+            <Separator Width="50" Background="White"></Separator>
+            <Button Content="{ns:Loc Cancel}" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="70" Margin="20, 20, 20, 5" 
+                    Click="CancelUpdateDepartment_Click"/>
+            <Separator Width="50" Background="White"></Separator>
+        </WrapPanel>
+
+    </Grid>
+</Window>

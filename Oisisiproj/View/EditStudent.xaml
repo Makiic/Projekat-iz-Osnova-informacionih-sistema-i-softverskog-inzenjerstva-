@@ -1,0 +1,190 @@
+﻿<Window x:Class="Oisisiproj.View.EditStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Oisisiproj.View"
+          xmlns:ns="clr-namespace:Oisisiproj.Localization"
+        mc:Ignorable="d"
+        Title="{ns:Loc UpdateStudent}" Height="580" Width="700">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <AdornedElementPlaceholder x:Name="textBox"/>
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+            
+
+        </ControlTemplate>
+      
+    </Window.Resources>
+
+
+    <TabControl Height="520" Width="600" Name="Tab">
+        <TabItem Header="Informations">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="450"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0" Width="450" Height="430">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="{ns:Loc FirstName}"  Grid.Row="0" Grid.Column="0" Height="25"></Label>
+                    <Label Content="{ns:Loc LastName}"  Grid.Row="1" Grid.Column="0" Height="25"></Label>
+                    <Label Content="{ns:Loc BirthDate}"  Grid.Row="2" Grid.Column="0" Height="25"></Label>
+                    <Label Content="{ns:Loc Address}"  Grid.Row="3" Grid.Column="0" Height="25"></Label>
+                    <Label Content="{ns:Loc PhoneNumber}"  Grid.Row="4" Grid.Column="0" Height="25"></Label>
+                    <Label Content="{ns:Loc Email}"  Grid.Row="5" Grid.Column="0" Height="25"></Label>
+                    <Label Content="{ns:Loc Index}"  Grid.Row="6" Grid.Column="0" Height="25"></Label>
+                    <Label Content="{ns:Loc YearInternship}"  Grid.Row="7" Grid.Column="0" Height="25"></Label>
+                    <Label Content="{ns:Loc YearStudy}"  Grid.Row="8" Grid.Column="0" Height="25"></Label>
+                    <Label Content="{ns:Loc FinancingMethod}"  Grid.Row="9" Grid.Column="0" Height="25"></Label>
+                    <TextBox  Name="imeTb" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Ime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25">
+                    </TextBox>
+                    <TextBox Name="prezimeTb" Grid.Row="1" Grid.Column="1" Text="{Binding Path=Prezime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25">
+                    </TextBox>
+                    <TextBox Name="datumRodjenjaTb" Grid.Row="2" Grid.Column="1" Text="{Binding Path=DatumRodjenja,StringFormat='dd/MM/yyyy', UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25" ></TextBox>
+                    <TextBox  Name ="adresaSTb" Grid.Row="3" Grid.Column="1" Text="{Binding Path=Adresa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+                    <TextBox Name="telefonTb" Grid.Row="4" Grid.Column="1" Text="{Binding Path=Telefon, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+                    <TextBox Name="emailTb" Grid.Row="5" Grid.Column="1" Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+             
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+                    <TextBox Name="indeksTb" Grid.Row="6" Grid.Column="1" Text="{Binding Path=Indeks, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+                    <TextBox Name="GodUpTb" Grid.Row="7" Grid.Column="1" Text="{Binding Path=GodinaUpisa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+                    <TextBox  Name ="GodStudTb" Grid.Row="8" Grid.Column="1" Text="{Binding Path=GodinaStudija, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></TextBox>
+                    <ComboBox Name="StatusCb" Grid.Row="9" Grid.Column="1" ItemsSource="{Binding Path= statusi}" Text="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Height="25"></ComboBox>
+                </Grid>
+                <WrapPanel Grid.Row="1" FlowDirection="LeftToRight">
+                    <Separator Background="White" Width="270"></Separator>
+                    <Button Content="{ns:Loc Confirm}" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 5, 20, 5"
+                            Click="PublishButton_Click"/>
+                    <Separator Background="White" Width="110"></Separator>
+                    <Button Content="{ns:Loc Cancel}" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 5, 20, 5" 
+                            Click="Button_Click"/>
+                    <Separator Background="White" Width="200"></Separator>
+                </WrapPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Passed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15" />
+                    <ColumnDefinition Width="86.431" />
+                    <ColumnDefinition Width="3.569" />
+                    <ColumnDefinition Width="275" />
+                    <ColumnDefinition Width="95" />
+                    <ColumnDefinition Width="75" />
+                    <ColumnDefinition Width="45" />
+                </Grid.ColumnDefinitions>
+                <Button Content="CancelGrade" Click="Ponisti" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" />
+                <TextBlock Grid.Row="5" Grid.Column="4" Text="{ns:Loc AverageGrade}"></TextBlock>
+                <TextBlock Grid.Row="5" Grid.Column="5" Text="{Binding ProsecnaOcena, UpdateSourceTrigger=PropertyChanged}" ></TextBlock>
+                <TextBlock Grid.Row="6" Grid.Column="4" Text="{ns:Loc ESPBPoints}"></TextBlock>
+                <TextBlock Grid.Row="6" Grid.Column="5" Text="{Binding BrojESPB, UpdateSourceTrigger=PropertyChanged}" ></TextBlock>
+                <DataGrid x:Name="datagrid" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5"
+                  ItemsSource="{Binding Path=PolozeniIspiti, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedItem="{Binding Path=SelectedPo, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False" IsReadOnly="True"
+                  Width="525" Height="350" Grid.RowSpan="1" Margin="5,0,5,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{ns:Loc SubjectCode}" Width="90" Binding="{Binding SifraPredmeta}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{ns:Loc NameSubject}" Width ="180" Binding="{Binding NazivPredmeta}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{ns:Loc ESPBPoints}" Width ="70" Binding="{Binding BrojESPB}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{ns:Loc Grade}" Width="55" Binding="{Binding BrojcanaVrednost}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{ns:Loc ExamDate}" Width="130" Binding="{Binding DatumPolaganja}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header=" Unpassed">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="260"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="{ns:Loc Add}" Grid.Row="1" Grid.Column="1" Click="ShowAddSubject_Window"></Button>
+                <Button Content="{ns:Loc Remove}" Grid.Row="1" Grid.Column="3" Click="UkloniPredmet" ></Button>
+                <Button Content="{ns:Loc Passing}" Grid.Row="1" Grid.Column="5" Click="ShowAddGrade_Window"></Button>
+                <DataGrid x:Name="sdatagrid" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" 
+
+                              ItemsSource="{Binding Path=NepolozeniPredmeti, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding Path=SelectedPredmet, UpdateSourceTrigger=PropertyChanged}"
+                              AutoGenerateColumns="False" IsReadOnly="True"
+                              Width="525" Height="350" Grid.RowSpan="1" Margin="2,0,2,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{ns:Loc SubjectCode}" Width="90" Binding="{Binding Sifra}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{ns:Loc NameSubject}" Width ="180" Binding="{Binding Naziv}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{ns:Loc ESPBPoints}" Width ="70" Binding="{Binding ESPB}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{ns:Loc YearStudy}" Width="90" Binding="{Binding GodinaStudija}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{ns:Loc Semester}" Width="130" Binding="{Binding Semestar}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+        </TabItem>
+    </TabControl>
+</Window>
+

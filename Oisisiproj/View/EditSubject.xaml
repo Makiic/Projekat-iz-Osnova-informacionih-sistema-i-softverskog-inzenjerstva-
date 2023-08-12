@@ -1,0 +1,29 @@
+﻿<Window x:Class="Oisisiproj.View.EditSubject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Oisisiproj.View"
+        xmlns:ns="clr-namespace:Oisisiproj.Localization"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="{ns:Loc UpdateSubject}" Height="410" Width="405">
+    <Grid>
+        <Button  Content="{ns:Loc Confirm}" HorizontalAlignment="Left" Margin="66,318,0,0" VerticalAlignment="Top" Width="80" Height="40" Background="#FF5F69FF" Click="EditSubjectButton_Click"/>
+        <Button Content="{ns:Loc Cancel}" HorizontalAlignment="Left" Margin="251,318,0,0" VerticalAlignment="Top" Width="80" Height="40" Background="#FFFF7777" Click="CancelSubject_Click"/>
+        <Label Content="{ns:Loc SubjectCode}" HorizontalAlignment="Left" Margin="38,41,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc NameSubject}" HorizontalAlignment="Left" Margin="38,77,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label  Content="{ns:Loc Semester}" HorizontalAlignment="Left" Margin="38,113,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc YearStudy}" HorizontalAlignment="Left" Margin="38,149,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="{ns:Loc ESPBPoints}" HorizontalAlignment="Left" Margin="38,185,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox Name="sifraTb" HorizontalAlignment="Left" Margin="183,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
+        <TextBox Name="nazivTb" HorizontalAlignment="Left" Margin="183,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
+        <TextBox Name="godStudTb" HorizontalAlignment="Left" Margin="183,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
+        <TextBox Name="espbTb" HorizontalAlignment="Left" Margin="183,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
+        <ComboBox Name="semestarCb" HorizontalAlignment="Left" Margin="183,118,0,0" VerticalAlignment="Top" Width="188"/>
+        <Label Content="Profesor*" HorizontalAlignment="Left" Margin="38,221,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="profesorTb" HorizontalAlignment="Left" Margin="183,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <Button x:Name="addProfButton" Content="+" HorizontalAlignment="Left" Margin="330,228,0,0" VerticalAlignment="Top" Width="18" Height="18" IsDefault="True" FontSize="9" Click="addProfButton_Click"/>
+        <Button x:Name="removeProfButton" Content="-" HorizontalAlignment="Left" Margin="353,228,0,0" VerticalAlignment="Top" Width="18" Height="18" IsDefault="True" FontSize="9" Click="removeProfButton_Click"/>
+    </Grid>
+</Window>
